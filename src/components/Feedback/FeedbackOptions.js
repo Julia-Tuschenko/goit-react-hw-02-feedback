@@ -1,8 +1,9 @@
 import React from 'react';
+import { Section } from '../Section.styled';
 
-const FeedbackBtn = ({ onGood, onNeutral, onBad }) => {
+const FeedbackOptions = ({ onGood, onNeutral, onBad }) => {
   return (
-    <div>
+    <Section title="FeedbackOptions">
       <h1>Please leave feedback</h1>
       <ul>
         <button type="button" onClick={onGood}>
@@ -15,8 +16,8 @@ const FeedbackBtn = ({ onGood, onNeutral, onBad }) => {
           Bad
         </button>
       </ul>
-    </div>
+    </Section>
   );
 };
 
-export default FeedbackBtn;
+export default FeedbackOptions;

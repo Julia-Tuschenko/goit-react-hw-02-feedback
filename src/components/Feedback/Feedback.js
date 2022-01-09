@@ -1,6 +1,7 @@
 import React from 'react';
-import FeedbackBtn from './FeedbackBtn';
-import FeedbackStatistics from './FeedbackStatistics';
+import FeedbackOptions from './FeedbackOptions';
+import Statistics from './Statistics';
+import Notification from '../Notification/Notification';
 
 class Feedback extends React.Component {
   state = {
@@ -48,19 +49,23 @@ class Feedback extends React.Component {
 
     return (
       <div>
-        <FeedbackBtn
+        <FeedbackOptions
           onGood={this.goodReview}
           onNeutral={this.neutralReview}
           onBad={this.badReview}
         />
 
-        <FeedbackStatistics
-          onGoodState={good}
-          onNeutralState={neutral}
-          onBadState={bad}
-          countTotal={this.countTotalFeedback()}
-          countPositive={this.countPositiveFeedbackPercentage()}
-        />
+        {this.countTotalFeedback() ? (
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        ) : (
+          <Notification message="There is no feedback" />
+        )}
       </div>
     );
   }
