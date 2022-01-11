@@ -1,10 +1,12 @@
 import React from 'react';
+import { Section } from '../GeneralStyled/Section.styled';
+import { NoFeedback } from './Notification.styled';
 
 const Notification = () => {
   return (
-    <div>
-      <p>There is no feedback</p>
-    </div>
+    <Section>
+      <NoFeedback>There is no feedback</NoFeedback>
+    </Section>
   );
 };
 
