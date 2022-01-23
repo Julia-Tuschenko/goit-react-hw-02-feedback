@@ -10,28 +10,36 @@ class Feedback extends React.Component {
     bad: 0,
   };
 
-  goodReview = () => {
-    this.setState(prevState => {
-      return {
-        good: prevState.good + 1,
-      };
-    });
-  };
+  // goodReview = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       good: prevState.good + 1,
+  //     };
+  //   });
+  // };
 
-  neutralReview = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
+  // neutralReview = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       neutral: prevState.neutral + 1,
+  //     };
+  //   });
+  // };
 
-  badReview = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
+  // badReview = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       bad: prevState.bad + 1,
+  //     };
+  //   });
+  // };
+
+  btnReview = event => {
+    const btnValue = event.currentTarget.value;
+    this.setState(prevState => ({
+      ...prevState,
+      [btnValue]: prevState[btnValue] + 1,
+    }));
   };
 
   countTotalFeedback = () => {
@@ -46,14 +54,11 @@ class Feedback extends React.Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+    const btnNames = Object.keys(this.state);
 
     return (
       <div>
-        <FeedbackOptions
-          onGood={this.goodReview}
-          onNeutral={this.neutralReview}
-          onBad={this.badReview}
-        />
+        <FeedbackOptions options={btnNames} onReview={this.btnReview} />
 
         {this.countTotalFeedback() ? (
           <Statistics

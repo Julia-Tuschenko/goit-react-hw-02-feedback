@@ -23,8 +23,8 @@ export const ListBtn = styled.ul`
 `;
 
 export const InfoList = styled.li`
-  margin-right: 15px;
-  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const Button = styled.button`
@@ -33,6 +33,8 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   padding: 16px 32px;
+  margin-right: 15px;
+  margin-top: 30px;
 
   width: 277px;
   height: 56px;

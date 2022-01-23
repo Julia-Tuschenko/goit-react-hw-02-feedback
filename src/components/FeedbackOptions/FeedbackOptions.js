@@ -2,17 +2,19 @@ import React from 'react';
 import { Section } from '../GeneralStyled/Section.styled';
 import { Title, ListBtn, InfoList, Button } from './FeedbackOptions.styled';
 
-const FeedbackOptions = ({ onGood, onNeutral, onBad }) => {
+const FeedbackOptions = ({ options, onReview }) => {
   return (
     <Section title="FeedbackOptions">
       <Title>Please leave feedback</Title>
       <ListBtn>
         <InfoList>
-          <Button type="button" onClick={onGood}>
-            Good
-          </Button>
+          {options.map(btn => (
+            <Button value={btn} key={btn} type="button" onClick={onReview}>
+              {btn}
+            </Button>
+          ))}
         </InfoList>
-        <InfoList>
+        {/* <InfoList>
           <Button type="button" onClick={onNeutral}>
             Neutral
           </Button>
@@ -21,7 +23,7 @@ const FeedbackOptions = ({ onGood, onNeutral, onBad }) => {
           <Button type="button" onClick={onBad}>
             Bad
           </Button>
-        </InfoList>
+        </InfoList> */}
       </ListBtn>
     </Section>
   );
